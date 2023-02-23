@@ -99,8 +99,8 @@ const HttpApi: React.FC = () => {
         <div className="max-w-4xl">
             <h3 className="text-emerald-400 text-3xl border-b pb-4 mt-4 mb-10 border-green-100">HTTP API</h3>
 
-            <div className='overflow-x-auto w-full'>
-                <table className='mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
+            <div className="overflow-x-auto w-full">
+                <table className="mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden">
                     <thead className="bg-gray-900">
                         <tr className="text-white text-left">
                             <th className="font-semibold text-sm uppercase px-6 py-4">Method</th>
