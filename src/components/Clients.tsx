@@ -16,7 +16,7 @@ type Client = {
 
 const clients: Array<Client> = [
     {
-        lang: "JavaScript",
+        lang: "Javascript",
         name: "hyperdb-js",
         source: "https://github.com/AfaanBilal/hyperdb-js",
         install: "npm i hyperdb-js",
