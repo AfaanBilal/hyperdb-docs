@@ -22,7 +22,7 @@ const App: React.FC = () => {
     const [view, setView] = React.useState<View>(View.HyperDB);
 
     return (
-        <div className="h-full flex flex-col items-center pt-12 text-white bg-gradient-to-t from-slate-800 to-slate-900">
+        <div className="py-12 flex flex-col items-center pt-12 text-white">
             <h1 className="text-teal-400 text-5xl font-mono font-extrabold my-6">HyperDB</h1>
             <h3 className="text-teal-600 text-xl font-mono italic">An in-memory hyper-fast key-value store with an HTTP API written in Rust.</h3>
 
