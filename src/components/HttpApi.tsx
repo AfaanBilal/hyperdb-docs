@@ -96,7 +96,7 @@ const apiRoutes: Array<Route> = [
 
 const HttpApi: React.FC = () => {
     return (
-        <div className="">
+        <div className="max-w-4xl">
             <h3 className="text-emerald-400 text-3xl border-b pb-4 mt-4 mb-10 border-green-100">HTTP API</h3>
 
             <div className='overflow-x-auto w-full'>
