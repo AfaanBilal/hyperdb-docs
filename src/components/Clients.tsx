@@ -54,7 +54,7 @@ const clients: Array<Client> = [
 
 const Clients: React.FC = () => {
     return (
-        <div className="w-full max-w-4xl">
+        <div className="w-full max-w-5xl">
             <h3 className="text-emerald-400 text-3xl border-b pb-4 mt-4 mb-10 border-green-100">Clients</h3>
             <div className="mb-8 border rounded-lg shadow-sm border-gray-700">
                 {clients.map(c =>
