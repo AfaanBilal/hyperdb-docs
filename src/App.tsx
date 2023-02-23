@@ -39,6 +39,8 @@ const App: React.FC = () => {
             {view === View.HyperDB && <HyperDB />}
             {view === View.Http && <HttpApi />}
             {view === View.Clients && <Clients />}
+
+            <div className="my-8 border-t border-slate-600 p-4">&copy; <a className="text-cyan-400" href="https://afaan.dev" rel="noopener">Afaan Bilal</a></div>
         </div>
     );
 }
