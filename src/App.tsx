@@ -25,6 +25,7 @@ const App: React.FC = () => {
         <div className="py-12 flex flex-col items-center pt-12 text-white">
             <h1 className="text-teal-400 text-5xl font-mono font-extrabold my-6">HyperDB</h1>
             <h3 className="text-teal-600 text-xl font-mono italic">An in-memory hyper-fast key-value store with an HTTP API written in Rust.</h3>
+            <div className="text-teal-200 text-md uppercase font-mono mt-6"><a href="https://github.com/AfaanBilal/hyperdb" target="_blank" rel="noopener">Source code</a></div>
 
             <code className="bg-black py-2 px-4 my-8 rounded">docker run --rm -it -p 8765:8765 afaanbilal/hyperdb</code>
 
@@ -40,7 +41,7 @@ const App: React.FC = () => {
             {view === View.Http && <HttpApi />}
             {view === View.Clients && <Clients />}
 
-            <div className="my-8 border-t border-slate-600 p-4">&copy; <a className="text-cyan-400" href="https://afaan.dev" rel="noopener">Afaan Bilal</a></div>
+            <div className="my-8 border-t border-slate-600 p-4">&copy; <a className="text-cyan-400" href="https://afaan.dev" target="_blank" rel="noopener">Afaan Bilal</a></div>
         </div>
     );
 }
