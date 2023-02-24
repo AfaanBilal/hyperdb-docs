@@ -7,7 +7,6 @@
  */
 
 import React from "react";
-import "./App.css";
 import Clients from "./components/Clients";
 import HttpApi from "./components/HttpApi";
 import HyperDB from "./components/HyperDB";
@@ -32,9 +31,9 @@ const App: React.FC = () => {
             <div className="border border-emerald-500 w-96 my-4" />
 
             <nav className="flex justify-center gap-4 my-4">
-                <span onClick={() => setView(View.HyperDB)} className={`${view === View.HyperDB && "border-b"} pb-2 cursor-pointer`}>HyperDB</span>
-                <span onClick={() => setView(View.Http)} className={`${view === View.Http && "border-b"} pb-2 cursor-pointer`}>HTTP API</span>
-                <span onClick={() => setView(View.Clients)} className={`${view === View.Clients && "border-b"} pb-2 cursor-pointer`}>Clients</span>
+                <span onClick={() => setView(View.HyperDB)} className={`${view === View.HyperDB && "border-b"} pb-2 px-2 cursor-pointer`}>HyperDB</span>
+                <span onClick={() => setView(View.Http)} className={`${view === View.Http && "border-b"} pb-2 px-2 cursor-pointer`}>HTTP API</span>
+                <span onClick={() => setView(View.Clients)} className={`${view === View.Clients && "border-b"} pb-2 px-2 cursor-pointer`}>Clients</span>
             </nav>
 
             {view === View.HyperDB && <HyperDB />}
