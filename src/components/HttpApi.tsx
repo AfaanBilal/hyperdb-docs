@@ -96,7 +96,7 @@ const apiRoutes: Array<Route> = [
 
 const HttpApi: React.FC = () => {
     return (
-        <div className="max-w-5xl">
+        <div className="flex flex-col w-full md:max-w-5xl">
             <h3 className="text-emerald-400 text-3xl border-b pb-4 mt-4 mb-10 border-green-100">HTTP API</h3>
 
             <div className="overflow-x-auto w-full">
@@ -111,7 +111,7 @@ const HttpApi: React.FC = () => {
                     </thead>
                     <tbody className="divide-y divide-gray-600 bg-slate-800">
                         {apiRoutes.map(r =>
-                            <tr>
+                            <tr key={r.method + r.path}>
                                 <td className="px-6 py-4 font-mono">{r.method}</td>
                                 <td className="px-6 py-4 font-mono">{r.path}</td>
                                 <td className="px-6 py-4 text-center">{r.auth ? '✅' : '⬜'}</td>

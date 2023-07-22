@@ -54,18 +54,18 @@ const clients: Array<Client> = [
 
 const Clients: React.FC = () => {
     return (
-        <div className="w-full max-w-5xl">
+        <div className="flex flex-col w-full md:max-w-5xl">
             <h3 className="text-emerald-400 text-3xl border-b pb-4 mt-4 mb-10 border-green-100">Clients</h3>
             <div className="mb-8 border rounded-lg shadow-sm border-gray-700">
                 {clients.map(c =>
-                    <div className="flex flex-col justify-center p-6 border-b rounded-t-lg bg-gray-800 border-gray-700">
-                        <div className="mb-4 text-gray-400 flex justify-around">
-                            <div className="flex flex-col justify-around items-start w-1/2">
+                    <div key={c.name} className="flex flex-col justify-center p-6 border-b rounded-t-lg bg-gray-800 border-gray-700">
+                        <div className="mb-4 text-gray-400 flex flex-wrap justify-around">
+                            <div className="flex flex-col justify-around items-start w-full md:w-1/2 mb-4 md:mb-0">
                                 <h3 className="text-2xl pl-1 font-semibold text-emerald-200">{c.name}</h3>
                                 <code className="mt-2 text-sm font-light bg-black py-2 px-4 inline-block rounded-md">{c.install}</code>
                             </div>
 
-                            <div className="text-left border-l-2 border-gray-600 pl-8 py-2 w-1/2">
+                            <div className="text-left border-l-2 border-gray-600 pl-8 py-2 w-full md:w-1/2">
                                 <div className="mb-2 text-gray-300 text-lg">{c.lang}</div>
                                 <div className="mb-2 text-xs">Source: <a className="text-cyan-600" href={c.source} target="_blank" rel="noopener">{c.source}</a></div>
                                 <div className="mb-2 text-xs">Package: <a className="text-cyan-600" href={c.package} target="_blank" rel="noopener">{c.package}</a></div>

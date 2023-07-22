@@ -47,7 +47,7 @@ const envVars: Array<EnvVar> = [
 
 const HyperDB: React.FC = () => {
     return (
-        <div className="max-w-5xl">
+        <div className="flex flex-col w-full md:max-w-5xl">
             <h3 className="text-emerald-400 text-3xl border-b pb-4 mt-4 mb-4 border-green-100">Environment variables</h3>
             <div className="overflow-x-auto w-full mb-8">
                 <table className="mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden">
@@ -60,7 +60,7 @@ const HyperDB: React.FC = () => {
                     </thead>
                     <tbody className="divide-y divide-gray-600 bg-slate-800">
                         {envVars.map(v =>
-                            <tr>
+                            <tr key={v.name}>
                                 <td className="px-6 py-4 font-mono">{v.name}</td>
                                 <td className="px-6 py-4 font-mono">{v.default}</td>
                                 <td className="px-6 py-4">{v.description}</td>
