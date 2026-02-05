@@ -47,31 +47,38 @@ const envVars: Array<EnvVar> = [
 
 const HyperDB: React.FC = () => {
     return (
-        <div className="flex flex-col w-full md:max-w-5xl">
-            <h3 className="text-emerald-400 text-3xl border-b pb-4 mt-4 mb-4 border-green-100">Environment variables</h3>
-            <div className="overflow-x-auto w-full mb-8">
-                <table className="mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden">
-                    <thead className="bg-gray-900">
-                        <tr className="text-white text-left">
-                            <th className="font-semibold text-sm uppercase px-6 py-4">Name</th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4">Default value</th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4">Description</th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-600 bg-slate-800">
-                        {envVars.map(v =>
-                            <tr key={v.name}>
-                                <td className="px-6 py-4 font-mono">{v.name}</td>
-                                <td className="px-6 py-4 font-mono">{v.default}</td>
-                                <td className="px-6 py-4">{v.description}</td>
+        <div className="flex flex-col w-full">
+            <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-emerald-400 mb-6">Environment Variables</h3>
+            <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 shadow-sm mb-12">
+                <div className="overflow-x-auto">
+                    <table className="w-full text-left text-sm text-slate-400">
+                        <thead className="bg-slate-900 text-slate-200 uppercase font-bold tracking-wider">
+                            <tr>
+                                <th className="px-6 py-4">Name</th>
+                                <th className="px-6 py-4">Default</th>
+                                <th className="px-6 py-4">Description</th>
                             </tr>
-                        )}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800">
+                            {envVars.map(v =>
+                                <tr key={v.name} className="hover:bg-slate-800/50 transition-colors">
+                                    <td className="px-6 py-4 font-mono text-teal-400 font-medium">{v.name}</td>
+                                    <td className="px-6 py-4 font-mono text-slate-300">{v.default}</td>
+                                    <td className="px-6 py-4 leading-relaxed">{v.description}</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <h3 className="text-emerald-400 text-3xl border-b pb-4 mt-4 mb-10 border-green-100">CLI</h3>
-            <code className="bg-black py-2 px-4 my-8 rounded">docker run --rm -it afaanbilal/hyperdb-cli -a http://host.docker.internal:8765</code>
+            <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-emerald-400 mb-6">CLI</h3>
+            <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
+                <code className="relative block bg-slate-900 text-slate-300 py-4 px-6 rounded-lg font-mono text-sm shadow-xl border border-slate-800">
+                    docker run --rm -it afaanbilal/hyperdb-cli -a http://host.docker.internal:8765
+                </code>
+            </div>
         </div>
     );
 };

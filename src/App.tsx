@@ -6,41 +6,40 @@
  *
  */
 
-import React from "react";
+import React, { useState } from "react";
 import Clients from "./components/Clients";
 import HttpApi from "./components/HttpApi";
 import HyperDB from "./components/HyperDB";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
 
-enum View {
-    HyperDB = "hyperdb",
-    Http = "http",
-    Clients = "clients",
-}
+type View = "hyperdb" | "http" | "clients";
 
 const App: React.FC = () => {
-    const [view, setView] = React.useState<View>(View.HyperDB);
+    const [view, setView] = useState<View>("hyperdb");
 
     return (
-        <div className="flex flex-col items-center justify-center px-2 pt-4 md:pt-12 text-white">
-            <h1 className="text-teal-400 text-5xl font-mono font-extrabold my-6">HyperDB</h1>
-            <h3 className="text-teal-600 text-xl text-justify md:text-center font-mono italic">An in-memory hyper-fast key-value store with an HTTP API written in Rust.</h3>
-            <div className="text-teal-200 text-md uppercase font-mono mt-6"><a href="https://github.com/AfaanBilal/hyperdb" target="_blank" rel="noopener">Source code</a></div>
+        <div className="min-h-screen bg-slate-950 font-sans text-slate-200 selection:bg-teal-500/30 selection:text-teal-200">
+            {/* Background elements */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-teal-500/10 blur-[100px]" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-500/10 blur-[100px]" />
+            </div>
 
-            <code className="bg-black py-2 px-4 my-8 rounded">docker run --rm -it -p 8765:8765 afaanbilal/hyperdb</code>
+            <div className="relative z-10 flex flex-col min-h-screen">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col items-center">
+                    <Hero />
+                    <Navbar currentView={view} setView={setView} />
 
-            <div className="border border-emerald-500 w-96 my-4" />
-
-            <nav className="flex justify-center gap-4 my-4">
-                <span onClick={() => setView(View.HyperDB)} className={`${view === View.HyperDB && "border-b"} pb-2 px-2 cursor-pointer`}>HyperDB</span>
-                <span onClick={() => setView(View.Http)} className={`${view === View.Http && "border-b"} pb-2 px-2 cursor-pointer`}>HTTP API</span>
-                <span onClick={() => setView(View.Clients)} className={`${view === View.Clients && "border-b"} pb-2 px-2 cursor-pointer`}>Clients</span>
-            </nav>
-
-            {view === View.HyperDB && <HyperDB />}
-            {view === View.Http && <HttpApi />}
-            {view === View.Clients && <Clients />}
-
-            <div className="my-8 border-t border-slate-600 p-4">&copy; <a className="text-cyan-400" href="https://afaan.dev" target="_blank" rel="noopener">Afaan Bilal</a></div>
+                    <main className="w-full max-w-5xl mt-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        {view === "hyperdb" && <HyperDB />}
+                        {view === "http" && <HttpApi />}
+                        {view === "clients" && <Clients />}
+                    </main>
+                </div>
+                <Footer />
+            </div>
         </div>
     );
 }

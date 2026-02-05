@@ -95,31 +95,56 @@ const apiRoutes: Array<Route> = [
 ];
 
 const HttpApi: React.FC = () => {
-    return (
-        <div className="flex flex-col w-full md:max-w-5xl">
-            <h3 className="text-emerald-400 text-3xl border-b pb-4 mt-4 mb-10 border-green-100">HTTP API</h3>
+    const getMethodColor = (method: string) => {
+        switch (method) {
+            case "GET": return "bg-blue-500/10 text-blue-400 border-blue-500/20";
+            case "POST": return "bg-green-500/10 text-green-400 border-green-500/20";
+            case "DELETE": return "bg-red-500/10 text-red-400 border-red-500/20";
+            default: return "bg-slate-500/10 text-slate-400 border-slate-500/20";
+        }
+    };
 
-            <div className="overflow-x-auto w-full">
-                <table className="mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden">
-                    <thead className="bg-gray-900">
-                        <tr className="text-white text-left">
-                            <th className="font-semibold text-sm uppercase px-6 py-4">Method</th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4">Path</th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4 text-center">Auth?</th>
-                            <th className="font-semibold text-sm uppercase px-6 py-4">Description</th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-600 bg-slate-800">
-                        {apiRoutes.map(r =>
-                            <tr key={r.method + r.path}>
-                                <td className="px-6 py-4 font-mono">{r.method}</td>
-                                <td className="px-6 py-4 font-mono">{r.path}</td>
-                                <td className="px-6 py-4 text-center">{r.auth ? '✅' : '⬜'}</td>
-                                <td className="px-6 py-4">{r.description}</td>
+    return (
+        <div className="flex flex-col w-full">
+            <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-emerald-400 mb-6">HTTP API</h3>
+
+            <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 shadow-sm">
+                <div className="overflow-x-auto">
+                    <table className="w-full text-left text-sm text-slate-400">
+                        <thead className="bg-slate-900 text-slate-200 uppercase font-bold tracking-wider">
+                            <tr>
+                                <th className="px-6 py-4">Method</th>
+                                <th className="px-6 py-4">Path</th>
+                                <th className="px-6 py-4 text-center">Auth</th>
+                                <th className="px-6 py-4">Description</th>
                             </tr>
-                        )}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800">
+                            {apiRoutes.map((r, i) =>
+                                <tr key={i} className="hover:bg-slate-800/50 transition-colors">
+                                    <td className="px-6 py-4">
+                                        <span className={`px-2 py-1 rounded-md text-xs font-bold border ${getMethodColor(r.method)}`}>
+                                            {r.method}
+                                        </span>
+                                    </td>
+                                    <td className="px-6 py-4 font-mono text-slate-300">{r.path}</td>
+                                    <td className="px-6 py-4 text-center">
+                                        {r.auth ? (
+                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-500/10 text-teal-500 border border-teal-500/20">
+                                                Required
+                                            </span>
+                                        ) : (
+                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-700/30 text-slate-500 border border-slate-700/50">
+                                                Public
+                                            </span>
+                                        )}
+                                    </td>
+                                    <td className="px-6 py-4 leading-relaxed">{r.description}</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
